@@ -7,5 +7,6 @@ FactoryGirl.define do
     state "NY"
     postal_code "10028"
     description "Greatest building EVER!"
+    owner_id "1"
   end
 end
