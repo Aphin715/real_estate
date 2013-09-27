@@ -1,10 +1,16 @@
 class BuildingsController < ApplicationController
+helper_method :buildings
 
   def new
     @building = Building.new
   end
 
+  def index
+    @building = Building.all
+  end
+
   def show
+
     @building = Building.find(params[:id])
   end
 
@@ -12,7 +18,7 @@ class BuildingsController < ApplicationController
     @building = Building.new(building_params)
 
     if @building.save
-      redirect_to new_building_path, notice: 'Building recorded.'
+      redirect_to '/buildings/:building_id/owners/new', notice: 'Building recorded.'
     else
       render :new
     end

@@ -53,12 +53,22 @@ feature 'associate an building with an owner', %Q{
       # If I delete an owner, the owner and its primary key should no
       #longer be associated with any properties.
 scenario 'owner wants to be associated with a building' do
+
     visit '/buildings/new'
     fill_in 'Address', with: '605 East 82nd Street'
     fill_in 'City', with: 'New York'
     fill_in 'State', with: 'NY'
     fill_in 'Description', with: 'Large building with great apartments.'
     fill_in 'Postal code', with: '10028'
+    click_button "Record"
+
+    expect(page).to have_content("Add a new Owner")
+    fill_in 'First name', with: 'Alex'
+    fill_in 'Last name', with: 'Phinizy'
+    fill_in 'Email', with: 'user@example.com'
+    fill_in 'Company name', with: 'Citi Habitats'
+    click_button 'Record'
+    expect(page).to have_content('Owner recorded.')
 
 
 end

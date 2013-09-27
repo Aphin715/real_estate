@@ -5,8 +5,8 @@ FactoryGirl.define do
     address "605 East 82nd Street"
     city "MyString"
     state "NY"
-    postal_code "10028"
+    postal_code 10028
     description "Greatest building EVER!"
-    owner_id "1"
+    owner_id 1
   end
 end

@@ -1,3 +1,5 @@
+<%= form_for (@building, @owner) do |f| %>
+
 <%- if @owner.errors.size > 0 -%>
   <ul class="errors">
     <%- @owner.errors.full_messages.each do |error| -%>
@@ -6,7 +8,7 @@
   </ul>
 <%- end -%>
 
-<%= form_for @owner do |f| %>
+
   <div>
     <%= f.label :first_name %>
     <%= f.text_field :first_name %>
@@ -29,4 +31,5 @@
   <div>
     <%= f.submit 'Record' %>
   </div>
+
 <%- end -%>

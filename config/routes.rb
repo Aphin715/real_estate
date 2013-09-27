@@ -1,7 +1,10 @@
 PhinAssessment::Application.routes.draw do
-  resources :buildings
+  resources :buildings do
+  resources :owners
+end
 
-    resources :owners
+
+
 
 
 

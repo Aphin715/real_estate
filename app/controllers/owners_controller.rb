@@ -4,12 +4,20 @@ class OwnersController < ApplicationController
     @owner = Owner.new
   end
 
-def create
+  def show
+    @owner = Owner.find(params[:id])
+  end
 
-   @owner = Owner.new(owner_params)
+def index
+  @owner = Owner.all
+end
+
+ def create
+    @building = Building.find(params[:building_id])
+    @owner = @building.owners.build(owner_params)
 
     if @owner.save
-      redirect_to new_owner_path, notice: 'Owner recorded.'
+      redirect_to owner_path(@owner), notice: "Owner Recorded."
     else
       render :new
     end
@@ -18,6 +26,10 @@ def create
 
 
 protected
+ def owner
+    @owner ||= Owner.all
+  end
+
   def owner_params
     params.require(:owner).permit(:first_name, :last_name, :email, :company_name)
   end

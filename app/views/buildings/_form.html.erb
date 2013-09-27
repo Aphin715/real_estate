@@ -6,7 +6,7 @@
   </ul>
 <%- end -%>
 
-<%= form_for [@building] do |f| %>
+<%= form_for building do |f| %>
   <div>
     <%= f.label :address %>
     <%= f.text_field :address %>
@@ -19,7 +19,7 @@
 
   <div>
     <%= f.label :state, "State Abbreviation"%>
-    <%= f.text_field :state %>
+    <%= f.text_field :state%>
   </div>
   <div>
     <%= f.label :postal_code %>
@@ -30,8 +30,6 @@
     <%= f.label :description %>
     <%= f.text_field :description %>
   </div>
-
-
 
   <div>
     <%= f.submit 'Record' %>
