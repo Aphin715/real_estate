@@ -1,4 +1,6 @@
 class Building < ActiveRecord::Base
+belongs_to :owner, inverse_of: :buildings
+
 
 STATES = %w{AL AK AZ AR CA CO CT DE FL GA HI ID IL
            IN IA KS KY LA ME MD MA MI MN MS MO MT NE NV NH NJ
